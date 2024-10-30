@@ -7,8 +7,8 @@
   },
   "servers": [
     {
-      "url": "http://localhost:3000",
-      "description": "Local development server"
+      "url": "https://api.teammates/work/v1",
+      "description": "Production API server"
     }
   ],
   "paths": {
@@ -19,51 +19,16 @@
         "requestBody": {
           "required": true,
           "content": {
-            "application/x-www-form-urlencoded": {
+            "application/json": {
               "schema": {
-                "type": "object",
-                "required": ["tool", "prompt"],
-                "properties": {
-                  "tool": {
-                    "type": "string",
-                    "description": "The tool to execute",
-                    "example": "google_sheets"
-                  },
-                  "prompt": {
-                    "type": "string",
-                    "description": "The prompt or command to execute",
-                    "example": "Update issue with ID 4 to status OK"
-                  }
-                }
+                "$ref": "#/components/schemas/ExecuteJobRequest"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "description": "Job successfully enqueued",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "status": {
-                      "type": "string",
-                      "enum": ["enqueued"]
-                    },
-                    "job_id": {
-                      "type": "string",
-                      "format": "uuid",
-                      "description": "Unique identifier for the job"
-                    }
-                  },
-                  "example": {
-                    "status": "enqueued",
-                    "job_id": "87fb989d-46dc-4a5c-af5d-de772f8e9ebc"
-                  }
-                }
-              }
-            }
+            "$ref": "#/components/responses/JobEnqueued"
           }
         }
       }
@@ -74,59 +39,12 @@
         "description": "Retrieves the current status or result of a job",
         "parameters": [
           {
-            "name": "job_id",
-            "in": "query",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            },
-            "description": "The ID of the job to check",
-            "example": "87fb989d-46dc-4a5c-af5d-de772f8e9ebc"
+            "$ref": "#/components/parameters/JobId"
           }
         ],
         "responses": {
           "200": {
-            "description": "Job status or result",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "required": ["status", "duration"],
-                  "properties": {
-                    "status": {
-                      "type": "string",
-                      "enum": ["in_progress", "complete"],
-                      "description": "Current status of the job"
-                    },
-                    "duration": {
-                      "type": "integer",
-                      "description": "Duration of the job execution in seconds"
-                    },
-                    "result": {
-                      "type": "string",
-                      "description": "JSON string containing the result data (only present when status is complete)",
-                      "format": "json"
-                    }
-                  },
-                  "examples": {
-                    "in_progress": {
-                      "value": {
-                        "status": "in_progress",
-                        "duration": 12
-                      }
-                    },
-                    "complete": {
-                      "value": {
-                        "status": "complete",
-                        "duration": 45,
-                        "result": "{\"spreadsheetId\":\"1IABmKhzqXojrAXtR5YGvnwn7LflJuCOZUYBsBLE2uOA\",\"updatedCells\":1,\"updatedColumns\":1,\"updatedRange\":\"Sheet1!F3\",\"updatedRows\":1}"
-                      }
-                    }
-                  }
-                }
-              }
-            }
+            "$ref": "#/components/responses/JobResult"
           }
         }
       }
@@ -134,6 +52,79 @@
   },
   "components": {
     "schemas": {
+      "ExecuteJobRequest": {
+        "type": "object",
+        "required": ["tool", "prompt"],
+        "properties": {
+          "tool": {
+            "type": "string",
+            "description": "The tool to execute",
+            "enum": [
+              "airtable",
+              "dropbox",
+              "github",
+              "gmail",
+              "google_docs",
+              "google_drive",
+              "google_sheets",
+              "google_slides",
+              "hubspot",
+              "jira",
+              "microsoft_365_excel",
+              "microsoft_365_word",
+              "salesforce",
+              "shopify",
+              "slack",
+              "trello",
+              "zendesk"
+            ],
+            "example": "google_sheets"
+          },
+          "prompt": {
+            "type": "string",
+            "description": "The prompt or command to execute",
+            "example": "Update issue with ID 4 to status OK"
+          }
+        }
+      },
+      "JobEnqueuedResponse": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": ["enqueued", "unstarted", "in_progress", "complete", "failed", "waiting_for_others", "canceled", "enqueued"]
+          },
+          "job_id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Unique identifier for the job"
+          }
+        },
+        "example": {
+          "status": "enqueued",
+          "job_id": "87fb989d-46dc-4a5c-af5d-de772f8e9ebc"
+        }
+      },
+      "JobResultResponse": {
+        "type": "object",
+        "required": ["status", "duration"],
+        "properties": {
+          "status": {
+            "type": "string",
+            "enum": ["in_progress", "complete"],
+            "description": "Current status of the job"
+          },
+          "duration": {
+            "type": "integer",
+            "description": "Duration of the job execution in seconds"
+          },
+          "result": {
+            "type": "string",
+            "description": "JSON string containing the result data (only present when status is complete)",
+            "format": "json"
+          }
+        }
+      },
       "GoogleSheetsResult": {
         "type": "object",
         "properties": {
@@ -156,6 +147,41 @@
           "updatedRows": {
             "type": "integer",
             "description": "Number of rows updated"
+          }
+        }
+      }
+    },
+    "parameters": {
+      "JobId": {
+        "name": "job_id",
+        "in": "query",
+        "required": true,
+        "schema": {
+          "type": "string",
+          "format": "uuid"
+        },
+        "description": "The ID of the job to check",
+        "example": "87fb989d-46dc-4a5c-af5d-de772f8e9ebc"
+      }
+    },
+    "responses": {
+      "JobEnqueued": {
+        "description": "Job successfully enqueued",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/JobEnqueuedResponse"
+            }
+          }
+        }
+      },
+      "JobResult": {
+        "description": "Job status or result",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/JobResultResponse"
+            }
           }
         }
       }
