@@ -34,13 +34,13 @@
     "url": "https://dashboard.mintlify.com"
   },
   "tabs": [
+  ],
+  "anchors": [
     {
       "name": "API Reference",
       "url": "api-reference",
-      "openapi": "https://raw.githubusercontent.com/benstein/docs/refs/heads/main/api-reference/openapi.yml"
-    }
-  ],
-  "anchors": [
+      "openapi": "/openapi.json"
+    },
     {
       "name": "Documentation",
       "icon": "book-open-cover",
