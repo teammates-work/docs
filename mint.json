@@ -15,6 +15,14 @@
       "to": "#FDF4FF"
     }
   },
+  "font": {
+    "headings": {
+      "family": "Nunito"
+    },
+    "body": {
+      "family": "Nunito"
+    }
+  },
   "topbarLinks": [
     {
       "name": "Support",
