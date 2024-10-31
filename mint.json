@@ -37,14 +37,14 @@
   ],
   "anchors": [
     {
-      "name": "Teammates Docs",
+      "name": "Teammates App",
       "icon": "book-open-cover",
-      "url": "introduction"
+      "url": "https://docs.teammates.work"
     },
     {
       "name": "Agent SmartTools",
-      "url": "api-reference",
-      "openapi": "/api-reference/openapi.json"
+      "url": "smart-tools",
+      "openapi": "/smart-tools/openapi.json"
     }
   ],
   "navigation": [
@@ -53,8 +53,7 @@
       "pages": [
         "introduction",
         "glossary",
-        "quickstart",
-        "development"
+        "quickstart"
       ]
     },
     {
@@ -68,13 +67,21 @@
     {
       "group": "Overview",
       "pages": [
-        "api-reference/introduction"
+        "smart-tools/introduction"
+      ]
+    },
+    {
+      "group": "Getting Started",
+      "pages": [
+        "smart-tools/rest",
+        "smart-tools/langchain",
+        "smart-tools/crewai"
       ]
     },
     {
       "group": "Tool List",
       "pages": [
-        "api-reference/tools"
+        "smart-tools/tools"
       ]
     }
   ],
