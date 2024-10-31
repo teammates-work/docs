@@ -1,6 +1,6 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Teammates",
   "logo": {
     "dark": "/logo/dark.png",
     "light": "/logo/light.png"
@@ -31,20 +31,20 @@
   ],
   "topbarCtaButton": {
     "name": "Dashboard",
-    "url": "https://dashboard.mintlify.com"
+    "url": "https://app.teammates.work"
   },
   "tabs": [
   ],
   "anchors": [
     {
-      "name": "API Reference",
-      "url": "api-reference",
-      "openapi": "/api-reference/openapi.json"
+      "name": "Teammates Docs",
+      "icon": "book-open-cover",
+      "url": "/"
     },
     {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://docs.teammates.work"
+      "name": "Agent SmartTools",
+      "url": "api-reference",
+      "openapi": "/api-reference/openapi.json"
     }
   ],
   "navigation": [
@@ -52,6 +52,7 @@
       "group": "Get Started",
       "pages": [
         "introduction",
+        "glossary",
         "quickstart",
         "development"
       ]
@@ -59,18 +60,21 @@
     {
       "group": "Essentials",
       "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
+        "essentials/integrations",
+        "essentials/assignments",
+        "essentials/skills"
       ]
     },
     {
-      "group": "API Documentation",
+      "group": "Overview",
       "pages": [
         "api-reference/introduction"
+      ]
+    },
+    {
+      "group": "Tool List",
+      "pages": [
+        "api-reference/tools"
       ]
     }
   ],
