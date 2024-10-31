@@ -44,7 +44,7 @@
     {
       "name": "Agent SmartTools",
       "url": "smart-tools",
-      "openapi": "/smart-tools/openapi.json"
+      "openapi": "/smart-tools/openapi.yaml"
     }
   ],
   "navigation": [
@@ -76,12 +76,6 @@
         "smart-tools/rest",
         "smart-tools/langchain",
         "smart-tools/crewai"
-      ]
-    },
-    {
-      "group": "Tool List",
-      "pages": [
-        "smart-tools/tools"
       ]
     }
   ],

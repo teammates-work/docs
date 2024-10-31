@@ -1,9 +1,9 @@
 {
   "openapi": "3.0.0",
   "info": {
-    "title": "Job Execution API",
+    "title": "Assignment Execution API",
     "version": "1.0.0",
-    "description": "API for executing and monitoring asynchronous tool-based jobs"
+    "description": "API for executing and monitoring asynchronous tool-based assignments"
   },
   "servers": [
     {
@@ -12,39 +12,39 @@
     }
   ],
   "paths": {
-    "/api/execute": {
+    "/v1/assign": {
       "post": {
-        "summary": "Execute a new job",
-        "description": "Initiates a new job execution for a specified tool with given parameters",
+        "summary": "Execute a new assignment",
+        "description": "Initiates a new assignment execution for a specified tool with given parameters",
         "requestBody": {
           "required": true,
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/ExecuteJobRequest"
+                "$ref": "#/components/schemas/ExecuteAssignmentRequest"
               }
             }
           }
         },
         "responses": {
           "200": {
-            "$ref": "#/components/responses/JobEnqueued"
+            "$ref": "#/components/responses/AssignmentEnqueued"
           }
         }
       }
     },
-    "/api/result": {
+    "/v1/assignment": {
       "get": {
-        "summary": "Get job result",
-        "description": "Retrieves the current status or result of a job",
+        "summary": "Get assignment result",
+        "description": "Retrieves the current status or result of an assignment",
         "parameters": [
           {
-            "$ref": "#/components/parameters/JobId"
+            "$ref": "#/components/parameters/AssignmentId"
           }
         ],
         "responses": {
           "200": {
-            "$ref": "#/components/responses/JobResult"
+            "$ref": "#/components/responses/AssignmentResult"
           }
         }
       }
@@ -52,7 +52,7 @@
   },
   "components": {
     "schemas": {
-      "ExecuteJobRequest": {
+      "ExecuteAssignmentRequest": {
         "type": "object",
         "required": ["tool", "prompt"],
         "properties": {
@@ -82,80 +82,108 @@
           },
           "prompt": {
             "type": "string",
-            "description": "The prompt or command to execute",
+            "description": "A natural language description of the task to be performed",
             "example": "Update issue with ID 4 to status OK"
+          },
+          "data": {
+            "type": "object",
+            "description": "Additional data to be used in the assignment execution",
+            "example": {
+              "issue_id": 4,
+              "new_status": "OK",
+              "priority": "high"
+            }
+          },
+          "webhook_url": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL to receive status updates when the assignment is complete",
+            "example": "https://api.yourapp.com/webhooks/assignment-updates"
           }
         }
       },
-      "JobEnqueuedResponse": {
+      "AssignmentEnqueuedResponse": {
         "type": "object",
         "properties": {
           "status": {
             "type": "string",
             "enum": ["enqueued", "unstarted", "in_progress", "complete", "failed", "waiting_for_others", "canceled"]
           },
-          "job_id": {
+          "assignment_id": {
             "type": "string",
             "format": "uuid",
-            "description": "Unique identifier for the job"
+            "description": "Unique identifier for the assignment. Save this ID to retrieve the result later."
           }
         },
         "example": {
           "status": "enqueued",
-          "job_id": "87fb989d-46dc-4a5c-af5d-de772f8e9ebc"
+          "assignment_id": "87fb989d-46dc-4a5c-af5d-de772f8e9ebc"
         }
       },
-      "JobResultResponse": {
+      "AssignmentResultResponse": {
         "type": "object",
         "required": ["status", "duration"],
         "properties": {
           "status": {
             "type": "string",
             "enum": ["unstarted", "in_progress", "complete", "failed", "waiting_for_others", "canceled"],
-            "description": "Current status of the job"
+            "description": "Current status of the assignment"
           },
           "duration": {
             "type": "integer",
-            "description": "Duration of the job execution in seconds"
+            "description": "Duration of the assignment execution in seconds"
           },
           "result": {
             "type": "string",
             "description": "JSON string containing the result data (only present when status is complete)",
             "format": "json"
+          },
+          "details": {
+            "type": "object",
+            "description": "Additional details about the assignment execution",
+            "example": {
+              "steps_completed": 3,
+              "last_action": "Updated cell F3 with new value",
+              "affected_items": ["Sheet1!F3"],
+              "tool_specific_info": {
+                "spreadsheet_name": "Q4 Planning",
+                "worksheet": "Budget"
+              }
+            }
           }
         }
       }
     },
     "parameters": {
-      "JobId": {
-        "name": "job_id",
+      "AssignmentId": {
+        "name": "assignment_id",
         "in": "query",
         "required": true,
         "schema": {
           "type": "string",
           "format": "uuid"
         },
-        "description": "The ID of the job to check",
+        "description": "The ID of the assignment to check",
         "example": "87fb989d-46dc-4a5c-af5d-de772f8e9ebc"
       }
     },
     "responses": {
-      "JobEnqueued": {
-        "description": "Job successfully enqueued",
+      "AssignmentEnqueued": {
+        "description": "Assignment successfully enqueued",
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/JobEnqueuedResponse"
+              "$ref": "#/components/schemas/AssignmentEnqueuedResponse"
             }
           }
         }
       },
-      "JobResult": {
-        "description": "Job status or result",
+      "AssignmentResult": {
+        "description": "Assignment status or result",
         "content": {
           "application/json": {
             "schema": {
-              "$ref": "#/components/schemas/JobResultResponse"
+              "$ref": "#/components/schemas/AssignmentResultResponse"
             }
           }
         }
