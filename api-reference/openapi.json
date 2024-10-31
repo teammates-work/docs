@@ -92,7 +92,7 @@
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["enqueued", "unstarted", "in_progress", "complete", "failed", "waiting_for_others", "canceled", "enqueued"]
+            "enum": ["enqueued", "unstarted", "in_progress", "complete", "failed", "waiting_for_others", "canceled"]
           },
           "job_id": {
             "type": "string",
@@ -111,7 +111,7 @@
         "properties": {
           "status": {
             "type": "string",
-            "enum": ["in_progress", "complete"],
+            "enum": ["unstarted", "in_progress", "complete", "failed", "waiting_for_others", "canceled"],
             "description": "Current status of the job"
           },
           "duration": {
@@ -122,31 +122,6 @@
             "type": "string",
             "description": "JSON string containing the result data (only present when status is complete)",
             "format": "json"
-          }
-        }
-      },
-      "GoogleSheetsResult": {
-        "type": "object",
-        "properties": {
-          "spreadsheetId": {
-            "type": "string",
-            "description": "ID of the Google Sheet that was updated"
-          },
-          "updatedCells": {
-            "type": "integer",
-            "description": "Number of cells updated"
-          },
-          "updatedColumns": {
-            "type": "integer",
-            "description": "Number of columns updated"
-          },
-          "updatedRange": {
-            "type": "string",
-            "description": "Range that was updated in A1 notation"
-          },
-          "updatedRows": {
-            "type": "integer",
-            "description": "Number of rows updated"
           }
         }
       }
