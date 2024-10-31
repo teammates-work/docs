@@ -3,4 +3,42 @@ title: 'CrewAI'
 description: 'CrewAI integration'
 ---
 
-CrewAI is a tool that allows you to control CrewAI agents with natural language.
+CrewAI is a popular open source framework that allows you to create and control AI agents with natural language. 
+
+To enable your CrewAI agents to use SaaS products like Salesforce, HubSpot, Google Sheets, and others you can equip them with the `TeammatesSmartTools` tool.
+
+
+```python
+import os
+from crewai import Agent, Task, Crew
+
+from crewai_tools import (
+    TeammatesSmartTools
+)
+
+teammates_smart_tools = TeammatesSmartTools()
+
+# Create an agent
+project_manager = Agent(
+    role='Project Manager',
+    goal='Keep the project status on track',
+    tools=[teammates_smart_tools]
+)
+
+# Give them a task
+status_update = Task(
+    description='Update the status of task "Forecast the Q3 financials" to "In Progress" in Google Sheets',
+    expected_output='The Google Sheet is correctly updated with the new status',
+    agent=project_manager
+)
+
+# Assemble a crew
+crew = Crew(
+    agents=[project_manager],
+    tasks=[status_update] 
+)
+
+# Execute the task
+crew.kickoff()
+
+```

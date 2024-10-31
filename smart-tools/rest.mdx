@@ -3,4 +3,44 @@ title: 'REST API'
 description: 'REST API integration'
 ---
 
-REST API is a tool that allows you to control REST API with natural language.
+SmartTools are available via a simple REST API.
+
+## Step 1: Initiate an Assignment
+
+```bash
+$ curl -XPOST https://api.teammates.work/v1/assign -dtool=google_sheets -dprompt="Update issue with ID 4 to status 'OK'"
+
+{"status":"enqueued","assignment_id":"87fb989d-46dc-4a5c-af5d-de772f8e9ebc"}
+
+```
+
+## Step 2: Check the Assignment Status
+
+```bash
+$ curl https://api.teammates.work/v1/assignments/87fb989d-46dc-4a5c-af5d-de772f8e9ebc
+
+{"status":"in_progress", "duration": 23}
+
+```
+
+
+## Step 3: Retrieve the Assignment Status after it's completed
+
+```bash
+$ curl https://api.teammates.work/v1/assignments/87fb989d-46dc-4a5c-af5d-de772f8e9ebc
+
+{
+  "status":"completed",
+  "duration": 42,
+  "result": "The issue with ID 4 has been successfully updated to status 'OK'",
+  "details": {
+    "spreadsheetId":"1IABmKhzqXojrAXtR5YGvnwn6LflJuCOZUYBsBLE2uOA",
+    "updatedCells":1,
+    "updatedColumns":1,
+    "updatedRange":"Sheet1!F3",
+    "updatedRows":1
+  }
+}
+
+```
+
