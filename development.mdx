@@ -4,30 +4,16 @@ description: 'Learn how to preview changes locally'
 ---
 
 <Info>
-  **Prerequisite**: Please install Node.js (version 19 or higher) before proceeding.
+  **Prerequisite**: Create a Teammate
 </Info>
 
-Step 1. Install Mintlify on your OS:
-
-<CodeGroup>
-
-```bash npm
-npm i -g mintlify
-```
-
-```bash yarn
-yarn global add mintlify
-```
-
-</CodeGroup>
-
-Step 2. Go to the docs are located (where you can find `mint.json`) and run the following command:
+Step 1. Example
 
 ```bash
-mintlify dev
-```
+$ curl -XPOST https://api.teammates.work/v1/execute -dtool=google_sheets -dprompt="Update issue with ID 4 to status OK"
+{"status":"enqueued","job_id":"87fb989d-46dc-4a5c-af5d-de772f8e9ebc"}
 
-The documentation website is now available at `http://localhost:3000`.
+```
 
 ### Custom Ports
 
