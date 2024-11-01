@@ -1,6 +1,6 @@
 ---
 title: 'SmartTools'
-description: 'Let your AI Agents Operate Popular SaaS Apps with Natural Language'
+description: 'Let your AI agents operate popular SaaS apps with natural language'
 ---
 
 <Note>
@@ -9,13 +9,15 @@ SmartTools API is currently in Developer Preview. [Join the waitlist](https://ww
 
 ## Overview
 
-AI agents are powerful, but they can only do so much "real work." Teammates' SmartTools allows your AI agents -- not just agents built by Teammates -- to **operate popular SaaS apps with natural language**.
+**Teammates' SmartTools allows your AI agents to operate popular SaaS apps with natural language**.
 
-As businesses adopt AI agents to transform their workflows, they expect agents to seamlessly interact with the variety of SaaS platforms powering today’s workplaces. But the reality is, today's agent API integrations – usually called "function calling" or "tool calling" – only allows agents to retrieve or create simple data. 
+As businesses adopt AI agents to transform their workflows, they (reasonably) expect them to operate the variety of SaaS tools powering today’s workplaces. But the reality is, today's agent API integrations – usually called "function calling" or "tool use" – only allow AI agents to retrieve or create simple data. 
 
-More sophisticated tasks, like correctly updating records in CRMs or adding complex data to spreadsheets, require a deep understanding of the products and nuanced controls. These SaaS platforms often involve business rules, custom objects, and unique configurations that are often easy for human operators, but agents simply can’t interpret out of the box. **Businesses need their AI agents to not only technically integrate with these systems, but to truly “understand” how to use them.**
+Any task that requires more than a single POST -- like updating records in CRMs or adding data to a spreadsheet -- require a deep understanding of the products being used and nuanced controls. These SaaS platforms involve business rules, custom objects, and unique configurations that are often easy for human operators, but agents simply can’t interpret out of the box. SaaS applications just weren't built for agents. 
 
-SmartTools solves this challenge by providing your AI agents with pre-built expertise in navigating and operating popular SaaS applications such as GSuite, Slack, Salesforce, and more. Unlike traditional agent tools that only enable basic transactional actions, SmartTools gives agents the understanding required to carry out sophisticated operations. For example, a simple command to “add a row to the end of a spreadsheet” triggers an agent’s understanding of everything from selecting the correct worksheet to understanding headers, formatting data types, writing formulas, handling duplicate entries, and more.
+<Tip>Businesses need agents that don't just integrate with their tools _technically_. They need agents that _understand how to use them_.</Tip>
+
+SmartTools solves this challenge by providing your AI agents with pre-built expertise to operate popular SaaS applications such as GSuite, Microsoft 365, Slack, Salesforce, and more. For example, a simple command to “add a row to the end of a Google Spreadsheet” triggers an agent’s understanding of everything from managing permissions to selecting the correct worksheet to understanding headers, formatting data types, writing formulas, handling duplicate entries, and more, all with a single natural language description.
 
 
 ## How it works
@@ -32,6 +34,7 @@ We then get to work interpreting the request, planning the steps required to acc
 
 - **Assignment Understanding**: SmartTools uses natural language processing to understand the intent of the request, extract necessary data, and plan the steps required to accomplish the task.
 - **Contextual Understanding**: SmartTools takes into account the current state of the application and existing data to make more informed decisions.
+- **Permissioning**: SmartTools supports white label authentication flows for all major SaaS applications, enabling your agents to operate on behalf of your customers without you worrying about credentials.
 - **Verification**: SmartTools don't fire and forget. They verify the results of their actions and take corrective action or notify your agent.
 - **Error Handling**: SmartTools includes error handling to catch and recover from common issues, such as network errors or rate limiting.
 - **Pagination**: SmartTools can handle pagination to retrieve all results when a request returns multiple pages.
