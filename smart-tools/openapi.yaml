@@ -4,10 +4,10 @@ info:
   version: '0.1'
   description: API for agents to operate SaaS software with natural language
 servers:
-  - url: https://api.teammates/work
+  - url: https://api.teammates.work/v1
     description: Production API server
 paths:
-  /v1/assign:
+  /assign:
     post:
       summary: Execute a new assignment
       description: Initiates a new assignment execution for a specified tool with given parameters
@@ -20,7 +20,7 @@ paths:
       responses:
         '200':
           $ref: '#/components/responses/AssignmentEnqueued'
-  /v1/assignment:
+  /assignment:
     get:
       summary: Get assignment result
       description: Retrieves the current status or result of an assignment
