@@ -79,16 +79,13 @@ components:
     AssignmentEnqueuedResponse:
       type: object
       properties:
-        status:
-          type: string
-          enum:
-            - enqueued
         assignment_id:
           type: string
           format: uuid
           description: Unique identifier for the assignment. Save this ID to retrieve the result later.
+      required:
+        - assignment_id
       example:
-        status: enqueued
         assignment_id: 87fb989d-46dc-4a5c-af5d-de772f8e9ebc
     AssignmentResultResponse:
       type: object
@@ -105,6 +102,7 @@ components:
             - failed
             - waiting_for_others
             - canceled
+            - clarification_required
           description: Current status of the assignment
         duration:
           type: integer
