@@ -1,17 +1,56 @@
 ---
 title: 'Skills'
-description: 'What can teammates do'
+description: 'What can your teammates do?'
 icon: 'gear'
 ---
 
-## Skills
+Teammates are designed to be helpful with a wide variety of tasks, so they have a large catalog of skills and abilities.
 
-- **Analyze Data**
-- **Analyze File**
-- **Ask AI**
-- **Chroma Key**
-- **Chunk Data**
-- **Clarify**
-- **Convert Image**
-- **Delegate Task**
-- **Describe Image**
+<Note>
+For best results, only give your teammates the skills that are relevant to their typical tasks. If they have too many capabilities, it increases the chance of them making unintended decisions.
+</Note>
+
+
+### Intrinsic Abilities
+- **Format Date And Time:** Translate human-readable dates and times to UTC in ISO8601 format
+- **Imagine:** Ideate or imagine a new creative concept. Useful for brainstorming or generating new ideas.
+- **Lookup Runbook:** Look in our company runbook to determine how to handle a particular scenario if you're not sure how to proceed. Note that not every scenario will have a specific answer in the runbook.
+- **Memorize:** Retain information for later use. Optionally pass metadata that can be associated with the information.
+- **Reason:** Ask a large language model (LLM) to reason about a topic. Useful for making if-else branching decisions and managing flow control in a workplan, or extracing meaning from content.
+- **Recall:** Recall or remember details previously encountered. May return a status of 'Memory not found' if no relevant memory was found.
+- **Use Tool:** Use an external API to accomplish a task.
+
+### Flow Control
+- **Clarify:** Ask for clarification about an ambiguous task. Note: If you can make a reasonable guess for what to do, always prefer that - you are designed to be helpful, not to bother people! But if an incorrect assumption or hallucination could have problematic consequences, it is better to ask.
+- **Delegate Task:** Delegate a task to another teammate
+- **For Each:** Perform a simple or complex task on a collection of items or an array of data
+- **Loop:** Process a collection of items. Pass in the list of items and the task to execute on each.
+
+### Document Management
+- **Read Document:** Read a document and extract the contents. Supported filetypes include docx, pdf, and most text-based formats.
+- **Write Copy:** Write compelling copy for a variety of purposes, audiences, and styles.
+- **Write Document:** Write data to a single file. Output file format can be txt.
+
+### Online Research
+- **Ask AI:** Query a large language AI model to answer open-ended questions or respond to an arbitrary prompt.
+- **HTTP Request:** Make an HTTP request to a URL and return the response
+- **Research:** Research a topic online. Returns a specific answer, not search results.
+- **Web Search:** Search the web for a given query and return the results.
+
+### Graphic Design
+- **Convert Image:** Convert an image to a different format
+- **Describe Image:** Describe the contents of an image
+- **Generate Image:** Generates a print-ready design matching the given description.
+- **Resize Image:** Resize a image given an integer width and height
+- **Transparent Background:** Make the background of an image transparent
+
+### Data Analysis
+- **Analyze Data:** Analyze a single piece of text data to provide insights, summaries, or recommendations.
+- **Analyze File:** Analyze the contents of a text file to provide insights, summaries, or recommendations.
+- **Chunk Data:** Break a text or JSON file into smaller chunks for easier processing by an LLM. Should never be used on binary files.
+- **Transform Data:** Transform or reformat structured input data to make it more usable in other contexts.
+
+### Code and Software Operations
+- **Run Code:** Execute an arbitrary Python script and return the contents of STDOUT
+- **Write Code:** Write a script in Python
+

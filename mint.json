@@ -59,8 +59,9 @@
     {
       "group": "Essentials",
       "pages": [
-        "essentials/integrations",
+        "essentials/abilities",
         "essentials/assignments",
+        "essentials/smart-tools",
         "essentials/skills"
       ]
     },
