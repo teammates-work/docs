@@ -53,16 +53,16 @@
       "pages": [
         "introduction",
         "glossary",
-        "quickstart"
+        "quickstart",
+        "assignments"
       ]
     },
     {
-      "group": "Essentials",
+      "group": "Teammate Capabilities",
       "pages": [
-        "essentials/abilities",
-        "essentials/assignments",
-        "essentials/smart-tools",
-        "essentials/skills"
+        "teammate-capabilities/skills",
+        "teammate-capabilities/smart-tools",
+        "teammate-capabilities/abilities"
       ]
     },
     {
