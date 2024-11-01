@@ -4,7 +4,7 @@ info:
   version: '0.1'
   description: API for agents to operate SaaS software with natural language
 servers:
-  - url: https://api.teammates/work/v1
+  - url: https://api.teammates/work
     description: Production API server
 paths:
   /v1/assign:
