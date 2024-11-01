@@ -105,9 +105,9 @@ components:
         status:
           type: string
           enum:
+            - complete
             - unstarted
             - in_progress
-            - complete
             - failed
             - waiting_for_others
             - canceled

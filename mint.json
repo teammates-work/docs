@@ -74,6 +74,7 @@
     {
       "group": "Getting Started",
       "pages": [
+        "smart-tools/authentication",
         "smart-tools/rest",
         "smart-tools/langchain",
         "smart-tools/crewai"
