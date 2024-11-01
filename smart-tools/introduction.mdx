@@ -1,123 +1,39 @@
 ---
 title: 'SmartTools'
-description: 'Let your AI Agents Control Popular SaaS Apps with Natural Language'
+description: 'Let your AI Agents Operate Popular SaaS Apps with Natural Language'
 ---
 
 ## Overview
 
-AI agents are powerful, but they can only do so much. SmartTools allows your AI agents -- not just Teammates -- to control popular SaaS apps with natural language.
+AI agents are powerful, but they can only do so much "real work." Teammates' SmartTools allows your AI agents -- not just teammates -- to **operate popular SaaS apps with natural language**.
 
-As businesses adopt AI agents to transform their workflows, the expectation is that agents will seamlessly interact with the variety of SaaS platforms powering today’s workplaces. But the reality is that while basic API integrations – usually called "function calling" – allow agents to retrieve or create simple data, more sophisticated tasks, like correctly updating records in CRMs or adding complex data to spreadsheets, require a deep understanding of the products and nuanced controls. These SaaS platforms often involve business rules, custom objects, and unique configurations that are often easy for human operators, but agents simply can’t interpret out of the box. Teams need their AI agents to not only technically integrate with these systems, but to truly “understand” how to use them.
+As businesses adopt AI agents to transform their workflows, they expect agents to seamlessly interact with the variety of SaaS platforms powering today’s workplaces. But the reality is, today's agent API integrations – usually called "function calling" or "tool calling" – only allows agents to retrieve or create simple data. 
 
-SmartTools solves this challenge by providing your AI agents -- not just Teammates' -- with pre-built expertise in navigating and operating popular SaaS applications such as GSuite, Slack, Salesforce, and more. Unlike traditional APIs that only enable basic transactional actions, SmartTools gives agents the understanding required to carry out sophisticated operations. For example, a simple command to “add a row to the end of a spreadsheet” triggers an agent’s understanding of everything from selecting the correct worksheet to understanding headers, formatting data types, writing formulas, handling duplicate entries, and more.
+More sophisticated tasks, like correctly updating records in CRMs or adding complex data to spreadsheets, require a deep understanding of the products and nuanced controls. These SaaS platforms often involve business rules, custom objects, and unique configurations that are often easy for human operators, but agents simply can’t interpret out of the box. **Businesses need their AI agents to not only technically integrate with these systems, but to truly “understand” how to use them.**
+
+SmartTools solves this challenge by providing your AI agents -- not just Teammates' -- with pre-built expertise in navigating and operating popular SaaS applications such as GSuite, Slack, Salesforce, and more. Unlike traditional agent tools that only enable basic transactional actions, SmartTools gives agents the understanding required to carry out sophisticated operations. For example, a simple command to “add a row to the end of a spreadsheet” triggers an agent’s understanding of everything from selecting the correct worksheet to understanding headers, formatting data types, writing formulas, handling duplicate entries, and more.
 
 
 ## How it works
 
-SmartTools provides a simple REST API that allows you to control popular SaaS applications with natural language. Your agents provide a tool name, optional data, and a natural language description of the action they want to perform.
+SmartTools provides an API that enables your AI agents to fully operate popular SaaS applications with natural language. 
 
-Your dedicated teammate then gets to work, interpreting the request and performing the action in the target application. 
+Your agents provide:
+ - **Tool name** e.g. _salesforce_
+ - **A description of the action to perform** e.g. _update the Coca-Cola opportunity to 'closed/won'_
 
-Note that some actions can be sophiticated and take a while to complete, especially when complex planning and verification is required. Your agent can either poll for the status while the teammate is working, or once the assignment is complete, the teammate will send a webhook to your agent with the result.
+Your teammate then gets to work with their SmartTools, interpreting the request, planning the steps required to accomplish the task, and then performing the action(s) in your target application. 
 
-## Examples
+## Key Features
 
-
-### Google Sheets Example
-
-For example, consider an agent that needs to update the status of an issue in a Google Sheet. Your agent would send the following request:
-
-```json
-{
-    "tool": "google_sheets",
-    "prompt": "Update issue with ID 4 to status 'OK'"
-}
-```
-
-At this point, your teammate will likely do the following:
-
-1. Introspect the spreadsheet to understand the existing structure, including the column headers, and data types.
-2. Search for the issue with ID 4
-3. Determine the correct column for the Status
-4. Update the status to OK
-5. Verify the change was made correctly and the data type & value are valid
-
-#### Why it's interesting
-
-While the prompt seems incredibly simple -- and indeed it would be simple for a human -- it actually requires a number of steps, introspection, and reasoning to correctly accomplish. It can't be done with a single function call.
+- **Assignment Understanding**: SmartTools uses natural language processing to understand the intent of the request, extract necessary data, and plan the steps required to accomplish the task.
+- **Contextual Understanding**: SmartTools takes into account the current state of the application and existing data to make more informed decisions.
+- **Verification**: SmartTools don't fire and forget. They verify the results of their actions and take corrective action or notify your agent.
+- **Error Handling**: SmartTools includes error handling to catch and recover from common issues, such as network errors or rate limiting.
+- **Pagination**: SmartTools can handle pagination to retrieve all results when a request returns multiple pages.
+- **Large File/Record Handling**: SmartTools enables you to process large amounts of data, say, 1,000s of records or large documents, that don't fit in a single context window.
+- **Human-in-the-loop**: SmartTools can ask for human review or approval before taking high risk actions.
+- **Clarification**: Prompts can be ambiguous, so SmartTools will ask for clarification if needed (ideally provided by your agent, not by a human).
+- **Framework Integrations**: SmartTools are available out-of-the-box with popular agent frameworks like LangChain and CrewAI.
 
 
-### Slack Example
-
-Even something as simple as sending a message to a channel can be complex if the agent needs to ensure the message is formatted correctly with Slack's proprietary Block Kit format and ensure the message is sent to a correct and valid channel.
-
-```json
-{
-    "tool": "slack",
-    "prompt": "Send this message to the channel #general",
-    "data": {
-        "text": "= Team Update: \n\nHey team! 👋 Just wanted to share a quick update about our progress on the Q3 goals. We're making great strides! 🎯 \n\n*Key highlights:*\n- Revenue up 15%\n- Customer satisfaction at 92%\n- New feature launch next week"
-    }
-}
-```
-
-
-
-Your teammate will do the following:
-
-1. Validate the channel name is correct
-2. Reformat the message to ensure it is formatted correctly with Slack's Block Kit format
-3. Send the message to the channel #general
-
-#### Why it's interesting
-
-Slack uses a JSON message format called Block Kit and a proprietary flavor of Markdown called "mrkdwn". Your agents don't need to know any of this, as they can simply send a natural language request and the teammate will handle the formatting. For reference, this is the message that the teammate would eventually send to Slack API:
-
-```json
-{
-  "blocks": [
-    {
-      "type": "header",
-      "text": {
-        "type": "plain_text",
-        "text": "Team Update"
-      }
-    },
-    {
-      "type": "section",
-      "text": {
-        "type": "mrkdwn",
-        "text": "Hey team! 👋 Just wanted to share a quick update about our progress on the Q3 goals. We're making great strides! 🎯"
-      }
-    },
-    {
-      "type": "section",
-      "text": {
-        "type": "mrkdwn",
-        "text": "*Key highlights:*\n• Revenue up 15%\n• Customer satisfaction at 92%\n• New feature launch next week"
-      }
-    }
-  ]
-}
-```
-
-### HubSpot Example
-
-For example, consider an agent that needs to find all contacts in HubSpot that work at Microsoft.
-
-```json
-{
-    "tool": "hubspot",
-    "prompt": "Find all contacts that work at Microsoft"
-}
-```
-
-At this point, your teammate will likely do the following:
-
-1. Query HubSpot CRM to understand the existing database structure and any custom objects or associations on the Contact object
-2. Search for the company object named "Microsoft" (using HubSpot's query language, and fuzzy matching e.g. "Microsoft Corporation")
-3. Determine the most important contact properties to include in the query
-4. Search for contacts with the property `company` set to the ID of the "Microsoft" company object (again, using HubSpot's query language)
-5. Handle pagination to retrieve all contacts if there are more than a single page of results
-
-Note that a task like this, while seemingly simple, likely requires 4 or more API call, plus a number of reasoning steps to correcly accomplish. It can't be done with a single function call.

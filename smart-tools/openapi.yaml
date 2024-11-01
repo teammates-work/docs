@@ -83,12 +83,6 @@ components:
           type: string
           enum:
             - enqueued
-            - unstarted
-            - in_progress
-            - complete
-            - failed
-            - waiting_for_others
-            - canceled
         assignment_id:
           type: string
           format: uuid

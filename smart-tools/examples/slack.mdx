@@ -1,0 +1,56 @@
+---
+title: 'Slack'
+description: 'Example of using SmartTools to send a message to Slack'
+---
+
+Even something as simple as sending a message to a channel can be complex if the agent needs to ensure the message is formatted correctly with Slack's proprietary Block Kit format and ensure the message is sent to a correct and valid channel.
+
+```json
+{
+    "tool": "slack",
+    "prompt": "Send this message to the channel #general",
+    "data": {
+        "text": "= Team Update: \n\nHey team! 👋 Just wanted to share a quick update about our progress on the Q3 goals. We're making great strides! 🎯 \n\n*Key highlights:*\n- Revenue up 15%\n- Customer satisfaction at 92%\n- New feature launch next week"
+    }
+}
+```
+
+
+
+Your teammate will do the following:
+
+1. Validate the channel name is correct
+2. Reformat the message to ensure it is formatted correctly with Slack's Block Kit format
+3. Send the message to the channel #general
+
+#### Why it's interesting
+
+Slack uses a JSON message format called Block Kit and a proprietary flavor of Markdown called "mrkdwn". Your agents don't need to know any of this, as they can simply send a natural language request and the teammate will handle the formatting. For reference, this is the message that the teammate would eventually send to Slack API:
+
+```json
+{
+  "blocks": [
+    {
+      "type": "header",
+      "text": {
+        "type": "plain_text",
+        "text": "Team Update"
+      }
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "Hey team! 👋 Just wanted to share a quick update about our progress on the Q3 goals. We're making great strides! 🎯"
+      }
+    },
+    {
+      "type": "section",
+      "text": {
+        "type": "mrkdwn",
+        "text": "*Key highlights:*\n• Revenue up 15%\n• Customer satisfaction at 92%\n• New feature launch next week"
+      }
+    }
+  ]
+}
+```

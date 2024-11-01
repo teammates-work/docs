@@ -72,6 +72,14 @@
       ]
     },
     {
+      "group": "Examples",
+      "pages": [
+        "smart-tools/examples/google_sheets",
+        "smart-tools/examples/slack",
+        "smart-tools/examples/hubspot"
+      ]
+    },
+    {
       "group": "Getting Started",
       "pages": [
         "smart-tools/authentication",

@@ -1,0 +1,46 @@
+---
+title: 'HubSpot'
+description: 'Example of using SmartTools to search HubSpot CRM'
+---
+
+Consider an agent that needs to find all contacts in HubSpot that work at Microsoft.
+
+```json
+{
+    "tool": "hubspot",
+    "prompt": "Find all contacts that work at Microsoft"
+}
+```
+
+At this point, your teammate will likely do the following:
+
+1. Query HubSpot CRM to understand the existing database structure and any custom objects or associations on the Contact object
+2. Search for the company object named "Microsoft" (using HubSpot's query language, and fuzzy matching e.g. "Microsoft Corporation")
+3. Determine the most important contact properties to include in the query
+4. Search for contacts with the property `company` set to the ID of the "Microsoft" company object (again, using HubSpot's query language)
+5. Handle pagination to retrieve all contacts if there are more than a single page of results
+
+Note that a task like this, while seemingly simple, likely requires 4 or more API call, plus a number of reasoning steps to correcly accomplish. It can't be done with a single function call.
+
+#### Why it's interesting
+
+Every company's CRM configuration is different, often with custom objects. Introspecting the database to understand proprties and associations is required to correctly perform the search. Also, HubSpot's query language is not just SQL. The simple company query above likely looks something like this:
+
+```json
+{
+  "filterGroups": [
+    {
+      "filters": [
+        {
+          "propertyName": "name",
+          "operator": "STARTS_WITH",
+          "value": "Microsoft"
+        }
+      ]
+    }
+  ],
+  "properties": ["name"]
+}
+```
+
+Your agent doesn't need to understand any of this. They simply need to send a natural language request and the teammate will handle the query language and API calls.

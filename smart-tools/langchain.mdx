@@ -19,42 +19,17 @@ tools = [google_sheets]
 tool_node = ToolNode(tools)
 model = ChatAnthropic(model="claude-3-5-sonnet-20241022", temperature=0).bind_tools(tools)
 
-# Define the function that determines whether to continue or not
-def should_continue(state: MessagesState) -> Literal["tools", END]:
-    messages = state['messages']
-    last_message = messages[-1]
-    if last_message.tool_calls:
-        return "tools"
-    return END
-
-# Define the function that calls the model
-def call_model(state: MessagesState):
-    messages = state['messages']
-    response = model.invoke(messages)
-    return {"messages": [response]}
-
-# Define a new graph
-workflow = StateGraph(MessagesState)
-
-# Define the two nodes we will cycle between
-workflow.add_node("agent", call_model)
+workflow.add_node("agent", model)
 workflow.add_node("tools", tool_node)
 workflow.add_edge(START, "agent")
 
-# We now add a conditional edge
-workflow.add_conditional_edges(
-    "agent",
-    should_continue,
-)
-
 workflow.add_edge("tools", 'agent')
-checkpointer = MemorySaver()
-app = workflow.compile(checkpointer=checkpointer)
+app = workflow.compile
 
-final_state = app.invoke(
+result = app.invoke(
     {"messages": [HumanMessage(content="Update the status of task 'Forecast the Q3 financials' to 'In Progress' in Google Sheets")]},
     config={"configurable": {"thread_id": 23}}
 )
-final_state["messages"][-1].content
+result["messages"][-1].content
 
 ```

@@ -1,0 +1,26 @@
+---
+title: 'Google Sheets'
+description: 'Example of using SmartTools to add a row to a Google Sheet'
+---
+
+Consider an agent that needs to update the status of an issue in a project planning Google Sheet. Your agent would send the following request:
+
+```json
+{
+    "tool": "google_sheets",
+    "prompt": "Update issue with ID 4 to status 'OK'"
+}
+```
+
+At this point, your teammate will likely do the following:
+
+1. Introspect the spreadsheet to understand the existing structure, including the column headers, and data types.
+2. Search for the issue with ID 4
+3. Determine the correct column for the Status
+4. Update the status to OK
+5. Verify the change was made correctly and the data type & value are valid
+
+#### Why it's interesting
+
+While the prompt seems incredibly simple -- and indeed it would be simple for a human -- it actually requires a number of steps, introspection, and reasoning to correctly accomplish. It can't be done with a single function call.
+
