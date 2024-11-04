@@ -5,40 +5,63 @@ description: 'CrewAI integration'
 
 CrewAI is a popular open source framework that allows you to create and control AI agents with natural language. 
 
-To enable your CrewAI agents to use SaaS products like Salesforce, HubSpot, Google Sheets, and others you can equip them with the `TeammatesSmartTools` tool.
+To enable your CrewAI agents to use SaaS products like Salesforce, HubSpot, Google Sheets, and others you can equip them with the `Teammates` tool.
 
 
 ```python
-import os
-from crewai import Agent, Task, Crew
+## crew.py
 
-from crewai_tools import (
-    TeammatesSmartTools
-)
+@CrewBase
+class FinancialAnalysisCrew():
+	"""Financial Analysis Crew"""
 
-teammates_smart_tools = TeammatesSmartTools()
+	@agent
+	def researcher(self) -> Agent:
+		return Agent(
+			config=self.agents_config['researcher'],
+			verbose=True
+		)
+	
+	@agent
+	def analysis_agent(self) -> Agent:
+		return Agent(
+			config=self.agents_config['analysis_agent'],
+			tools=[Teammates(tool_name='google_sheets')],
+			verbose=True
+		)
+```
 
-# Create an agent
-project_manager = Agent(
-    role='Project Manager',
-    goal='Keep the project status on track',
-    tools=[teammates_smart_tools]
-)
+```yaml
+## agents.yaml
 
-# Give them a task
-status_update = Task(
-    description='Update the status of task "Forecast the Q3 financials" to "In Progress" in Google Sheets',
-    expected_output='The Google Sheet is correctly updated with the new status',
-    agent=project_manager
-)
+analysis_agent:
+  role: >
+    {topic} Analysis Agent
+  goal: >
+    Add content to a Google Sheet
+  backstory: >
+    You're a seasoned analyst skilled at operating Google Sheets.
+```
 
-# Assemble a crew
-crew = Crew(
-    agents=[project_manager],
-    tasks=[status_update] 
-)
+```yaml
+## tasks.yaml
 
-# Execute the task
-crew.kickoff()
+analysis_task:
+  description: >
+    Review the content you got and add it to the appropriate row in the Google Sheet
+  expected_output: >
+    The result of updating the Google Sheet
+  agent: analysis_agent
+```
+
+```python
+## main.py
+
+def run():
+    """Run the crew"""
+    inputs = {
+        'assignment': 'Update the Q3 financials'
+    }
+    FinancialAnalysisCrew().crew().kickoff(inputs=inputs)
 
 ```
