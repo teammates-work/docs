@@ -1,0 +1,75 @@
+---
+title: 'Slack'
+description: 'How to use Slack with your teammates'
+icon: 'slack'
+---
+
+<Note>
+Slack chat is currently in Preview. [Join the waitlist](https://www.teammates.work/join) to get early access.
+</Note>
+
+You can interact with your teammates without even leaving Slack!
+
+### How it Works
+
+To interact with a teammate in Slack, you'll need to make them an account. But because they are not real people, you aren't going to make them a regular login; you will do it by making a Slack app, one for each teammate.
+But don't worry! It's much easier than it sounds and just takes a few clicks.
+
+### Working with your teammate in Slack
+
+You can work with teammates in Slack just like regular employees on your team. You can @-mention them, invite them to channels, and DM them.
+
+<Note>
+To interact with your teammate, you need to either @-mention them in a channel or DM them. If they're in a group chat, they won't automatically listen to every message, only to ones explicitly sent to them.
+</Note>
+
+Anything you can do in a regular Teammates Chat you can do in Slack: have a conversation, assign work, check on the status of things, and more.
+
+### Setup
+
+
+#### Create Slack App
+
+First you need to create a new app from Slack's web interface. It's easy -- you can get all the configuration details right from the Teammates app.
+
+A "manifest" is a bit of JSON that describes your teammate. We generate it for you and it will look something like this:
+
+```json
+{"display_information"=>
+  {"name"=>"Doc Brown (Teammate)",
+   "description"=>"Mad Scientist",
+   "background_color"=>"#1F2937",
+   ...
+  },
+  ...
+}
+```
+
+1. In the [Teammates app](https://app.teammtes.work/teammtes), click on your Teammate's profile and then click `Chat in Slack`. This will display the manifest JSON custom made for your teammate.
+1. Visit [Slack Apps page](https://api.slack.com/apps) and click `Create New App`
+1. Select `From a manifest`
+1. Select the Workspace you want to add the app to (likely your company's workspace)
+1. Copy-paste the manifest JSON from the previous step into the `Manifest JSON` field and click `Create`
+1. Click `Next` and the `Create`
+
+#### Configure in Teammates
+
+Now you need to tell the Teammates app about your new Slack app.
+
+1. From your Slack app's configuration page (which you can find here https://api.slack.com/apps), click `OAuth & Permissions`
+1. Scroll down to `Oauth Tokens` and copy the `Bot User OAuth Token` value (it's likely 50+ characters long starting with "xoxb" or similar)
+1. Go back to the [Teammates app](https://app.teammtes.work/teammtes) and paste your token into the `Bot User OAuth Token` field and click `Save`
+
+#### Add Your Teammate's Avatar
+
+It's no fun to see a generic avatar for your teammate. Let's make them look good!
+
+1. From the Teammates app, click your teammate's avatar to see the hi-res version. Right click and Save Image (or File > Save Image) to download the image.
+1. From your Slack app's configuration page (which you can find here https://api.slack.com/apps), click `Basic Information`
+1. Scroll down to `Display Information` and upload the image.
+
+
+Finally, click `Install App` and you're done! Go @-mention your teammate in Slack and say hi!
+
+
+

@@ -62,7 +62,8 @@
       "pages": [
         "teammate-capabilities/skills",
         "teammate-capabilities/smart-tools",
-        "teammate-capabilities/abilities"
+        "teammate-capabilities/abilities",
+        "teammate-capabilities/slack"
       ]
     },
     {
