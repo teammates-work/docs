@@ -52,24 +52,32 @@ A "manifest" is a bit of JSON that describes your teammate. We generate it for y
 1. Copy-paste the manifest JSON from the previous step into the `Manifest JSON` field and click `Create`
 1. Click `Next` and the `Create`
 
-#### Configure in Teammates
-
-Now you need to tell the Teammates app about your new Slack app.
-
-1. From your Slack app's configuration page (which you can find here https://api.slack.com/apps), click `OAuth & Permissions`
-1. Scroll down to `Oauth Tokens` and copy the `Bot User OAuth Token` value (it's likely 50+ characters long starting with "xoxb" or similar)
-1. Go back to the [Teammates app](https://app.teammtes.work/teammtes) and paste your token into the `Bot User OAuth Token` field and click `Save`
-
 #### Add Your Teammate's Avatar
 
 It's no fun to see a generic avatar for your teammate. Let's make them look good!
 
-1. From the Teammates app, click your teammate's avatar to see the hi-res version. Right click and Save Image (or File > Save Image) to download the image.
-1. From your Slack app's configuration page (which you can find here https://api.slack.com/apps), click `Basic Information`
-1. Scroll down to `Display Information` and upload the image.
+1. On the page after you created the Slack app, scroll down to `Display Information`
+1. Back to the Teammates app... click your teammate's avatar to see the hi-res version. Right click and Save Image (or File > Save Image) to download the image.
+1. Upload the image of your avatar
+
+You can always find the Slack app configuration page again [here](https://api.slack.com/apps)
+
+#### Install your new Teammate Slack app
+
+1. From the app configuration page, click `Install App` in the left sidebar
+1. Click `Install` to install it to your workspace
+1. Click `Allow` when prompted
+
+#### Configure in Teammates
+
+Lastly you need to update the Teammates app with the new Slack app's OAuth token.
+
+1. After you install the app, you should see a screen with a `Bot User OAuth Token`. Copy this value. It's likely 50+ characters long starting with "xoxb" or similar
+1. If you didn't copy it, you can find it again from the `OAuth & Permissions` section in your app's configuration page
+1. Go back to the [Teammates app](https://app.teammtes.work/teammtes) and paste your token into the `Bot User OAuth Token` field and click `Save`
 
 
-Finally, click `Install App` and you're done! Go @-mention your teammate in Slack and say hi!
+That's it! Go @-mention your teammate in Slack and have them introduce themselves!
 
 
 
