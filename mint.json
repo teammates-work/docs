@@ -67,6 +67,12 @@
       ]
     },
     {
+      "group": "",
+      "pages": [
+        "changelog"
+      ]
+    },
+    {
       "group": "Overview",
       "pages": [
         "smart-tools/introduction"
