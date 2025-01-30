@@ -14,26 +14,28 @@ For best results, only give your teammates the skills that are relevant to their
 ### Intrinsic Abilities
 - **Format Date And Time:** Translate human-readable dates and times to UTC in ISO8601 format
 - **Imagine:** Ideate or imagine a new creative concept. Useful for brainstorming or generating new ideas.
-- **Lookup Runbook:** Look in our company runbook to determine how to handle a particular scenario if you're not sure how to proceed. Note that not every scenario will have a specific answer in the runbook.
-- **Memorize:** Retain information for later use. Optionally pass metadata that can be associated with the information.
-- **Reason:** Ask a large language model (LLM) to reason about a topic. Useful for making if-else branching decisions and managing flow control in a workplan, or extracing meaning from content.
-- **Recall:** Recall or remember details previously encountered. May return a status of 'Memory not found' if no relevant memory was found.
+- **Lookup Runbook:** Look in our company runbook to determine how to handle a particular scenario if you're not sure how to proceed.
+- **Memorize:** Retain information for later use.
+- **Post To Chat:** Post a message to in-app chat or an external chat service.
+- **Reason:** Ask a large language model (LLM) to reason about a topic.
+- **Recall:** Recall or remember details previously encountered.
 - **Use Tool:** Use an external API to accomplish a task.
 
 ### Flow Control
-- **Clarify:** Ask for clarification about an ambiguous task. Note: If you can make a reasonable guess for what to do, always prefer that - you are designed to be helpful, not to bother people! But if an incorrect assumption or hallucination could have problematic consequences, it is better to ask.
+- **Human in the Loop:** Ask a human for input, such as gathering more information, clarifying ambiguous instructions, or seeking approval before taking a potentially risky or destructive action.
 - **Delegate Task:** Delegate a task to another teammate
 - **For Each:** Perform a simple or complex task on a collection of items or an array of data
-- **Loop:** Process a collection of items. Pass in the list of items and the task to execute on each.
 
 ### Document Management
 - **Read Document:** Read a document and extract the contents. Supported filetypes include docx, pdf, and most text-based formats.
 - **Write Copy:** Write compelling copy for a variety of purposes, audiences, and styles.
 - **Write Document:** Write data to a single file. Output file format can be txt.
+- **Add To Knowledge Base:** Add a document to the knowledge base.
 
 ### Online Research
 - **Ask AI:** Query a large language AI model to answer open-ended questions or respond to an arbitrary prompt.
 - **HTTP Request:** Make an HTTP request to a URL and return the response
+- **News Search:** Search for news articles and current events
 - **Research:** Research a topic online. Returns a specific answer, not search results.
 - **Web Search:** Search the web for a given query and return the results.
 
@@ -47,7 +49,7 @@ For best results, only give your teammates the skills that are relevant to their
 ### Data Analysis
 - **Analyze Data:** Analyze a single piece of text data to provide insights, summaries, or recommendations.
 - **Analyze File:** Analyze the contents of a text file to provide insights, summaries, or recommendations.
-- **Chunk Data:** Break a text or JSON file into smaller chunks for easier processing by an LLM. Should never be used on binary files.
+- **Chunk Data:** Break a text or JSON file into smaller chunks for easier processing by an LLM.
 - **Transform Data:** Transform or reformat structured input data to make it more usable in other contexts.
 
 ### Code and Software Operations
