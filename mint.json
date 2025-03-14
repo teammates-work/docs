@@ -39,12 +39,7 @@
     {
       "name": "Teammates App",
       "icon": "book-open-cover",
-      "url": "https://docs.teammates.work"
-    },
-    {
-      "name": "Agent SmartTools",
-      "url": "smart-tools",
-      "openapi": "/smart-tools/openapi.yaml"
+      "url": "/"
     }
   ],
   "navigation": [
