@@ -58,7 +58,8 @@
         "teammate-capabilities/skills",
         "teammate-capabilities/smart-tools",
         "teammate-capabilities/abilities",
-        "teammate-capabilities/slack"
+        "teammate-capabilities/slack",
+        "teammate-capabilities/google-workspace"
       ]
     },
     {
