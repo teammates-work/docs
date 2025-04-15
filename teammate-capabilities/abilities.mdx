@@ -1,22 +1,23 @@
 ---
-title: 'Abilities'
-description: 'What can your teammates do?'
-icon: 'envelope'
+title: "Collaboration"
+description: "Interacting and collaborating with your teammates"
+icon: "envelope"
 ---
 
-In addition to skills and tools, teammates have a number of other built in capabilities
+Teammates have built in abilities that let them collaborate with you and the outside world.
 
 ### Email
 
-Every teammate has a unique email address that you can send email to and they will determine the best course of action. By setting up a teammate's `Handbook`, you can give them instructions on how to handle common scenarios.
-
-<Note>
-Teammates only respond to emails sent by active users in your account. They are not publically accessible to anyone.
-</Note>
+Every teammate has a unique email address that you can send email to and they will determine the best course of action. Their email address is intentionally a little cryptic so only you know it and other people don't start emailing them by mistake. But if you give your teammate a GMail account, you can set up emailing forwarding so they'll have a nice email at your domain.
 
 ### Chat
 
-You can chat with your teammates in the Chat interface in the app. They know about their own abilities, their colleagues, their assignment history, and how to use the Teammates app. 
+While most folks prefer to chat with their teammates in Slack, out of the box they can use our in-app chat interface to get to know your teammate better. You can assign them tasks, learn about their abilities, setup rules and playbooks, and even ask how to use the Teammates app.
 
-Chatting your teammates is a great way to get started!
+Chatting with your teammates is a great way to get started\!
 
+### Webhooks
+
+Every teammate has their own unique public URL that listens for webhooks from 3rd party applications. You can copy-paste their URL into any app that has a webhook feature and the content will get POSTed to the teammate.
+
+Out of the box, the teammate will likely ignore the webhooks -- you haven't told them what to do with them yet\! You can either hop into Chat/Slack and explain it to them (e.g. "When you get a notification about a new signup, add them to the google sheet") or setup more advanced Rules in the Teammates dashboard.
