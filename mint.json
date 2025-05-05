@@ -55,6 +55,7 @@
     {
       "group": "Teammate Capabilities",
       "pages": [
+        "capabilities/assignments",
         "capabilities/skills",
         "capabilities/smart-tools",
         "capabilities/handbook",
