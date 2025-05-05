@@ -67,29 +67,6 @@
       "pages": [
         "changelog"
       ]
-    },
-    {
-      "group": "Overview",
-      "pages": [
-        "smart-tools/introduction"
-      ]
-    },
-    {
-      "group": "Getting Started",
-      "pages": [
-        "smart-tools/authentication",
-        "smart-tools/rest",
-        "smart-tools/langchain",
-        "smart-tools/crewai"
-      ]
-    },
-    {
-      "group": "Examples",
-      "pages": [
-        "smart-tools/examples/google_sheets",
-        "smart-tools/examples/slack",
-        "smart-tools/examples/hubspot"
-      ]
     }
   ],
   "footerSocials": {
