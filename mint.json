@@ -55,13 +55,18 @@
     {
       "group": "Teammate Capabilities",
       "pages": [
-        "teammate-capabilities/skills",
-        "teammate-capabilities/smart-tools",
-        "teammate-capabilities/collaboration",
-        "teammate-capabilities/handbook",
-        "teammate-capabilities/rules",
-        "teammate-capabilities/slack",
-        "teammate-capabilities/google-workspace"
+        "capabilities/skills",
+        "capabilities/smart-tools",
+        "capabilities/handbook",
+        "capabilities/rules"
+      ]
+    },
+    {
+      "group": "Interacting with Teammates",
+      "pages": [
+        "collaboration/communication",
+        "collaboration/slack",
+        "collaboration/google-workspace"
       ]
     },
     {
