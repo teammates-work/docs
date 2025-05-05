@@ -1,0 +1,36 @@
+---
+title: "Communicating with Teammates"
+description: "Interacting and communicating with your teammates"
+icon: "envelope"
+---
+
+Teammates have built in abilities that let them collaborate with you and the outside world.
+
+### Email
+
+Every teammate has a unique email address that you can send email to and they will determine the best course of action. Their email address is intentionally cryptic (31pbobrerdvj@inbox.teammates.work) so only you know it, and other people don't start emailing your teammates by mistake. 
+But if you give your teammate a GMail account, you can set up emailing forwarding so they'll have a nice email at your domain.
+
+<Note>
+By default, the email you use to login to the Teammates app is considered a trusted sender and teammates will automatically read emails from you. But for security purposes, in order to receive emails from _other_ people, you'll need to setup a [Rule](/capabilities/rules) to explicitly tell your teammate to read those emails.
+</Note>
+
+### Chat
+
+While most folks prefer to chat with their teammates in Slack, out of the box they can use our in-app chat interface to get to know your teammate better. 
+You can assign them tasks, learn about their abilities, setup rules and playbooks, and even ask how to use the Teammates app.
+
+Chatting with your teammates is a great way to get started\!
+
+### Webhooks
+
+Webhooks are a great way to integrate with 3rd party applications, particularly when events happen in the 3rd party app that your teammates should know about. 
+Many online services have webhook capabilities that you can use to trigger events for your teammates. Simply copy-paste the teammate's unique webhook URL from their profile page into any app that has a webhook feature and the content will get POSTed to the teammate.
+
+<Note>
+For security reasons, your teammate will likely ignore webhooks at first -- you haven't told them what to do with them yet\! You can either hop into Chat/Slack and explain it to them (e.g. "When you get a notification about a new signup, add them to the google sheet") or setup [Rules](/capabilities/rules) manually in the Teammates dashboard.
+</Note>
+
+### Slack
+
+Many folks like to use Slack to communicate with their teammates. For more information on how to integrate with Slack, see the [Slack integration docs](/capabilities/slack).
