@@ -1,0 +1,79 @@
+---
+title: 'Rules'
+description: 'Help Teammates respond to external events'
+icon: 'gear'
+---
+
+# Rules: How Teammates Decide What to Do
+
+Teammates don’t wait around for prompts — they operate based on a set of dynamic rules that help them decide when to take action, how to respond, and what to prioritize. 
+But these aren’t traditional if-this-then-that automations. Rules in Teammates are flexible, composable, and intuitive — built to mimic human reasoning, not robotic logic.
+
+This page explains what Rules are, how they work, and how you can use them to shape your Teammate’s behavior.
+
+---
+
+## What is a Rule?
+
+A **Rule** is a lightweight directive that tells a Teammate how to behave in specific situations.
+
+Think of it as a policy or reflex — a way to teach your Teammate what to do *when something happens*. Rules help Teammates:
+- Know when to start work
+- Decide how to handle edge cases
+- Understand exceptions and escalation paths
+- Prioritize tasks across workflows
+
+Rules aren’t rigid — they can coexist, overlap, and evolve. Teammates constantly evaluate them in context to make decisions just like a real teammate would.
+
+---
+
+## What Triggers a Rule?
+
+Rules are activated by **events** — either inside the tools your team uses, or within the Teammate’s own workflow. For example:
+
+- A message in Slack that @mentions the Teammate
+- A change to a Google Sheet, Salesforce record, or database row
+- A scheduled event (e.g. "every Monday at 9am")
+- Another Teammate completing a related step
+
+Rules allow Teammates to react to these events autonomously, without needing a human to spell out what happens next.
+
+<Note>
+Rules must be triggered by an _event_. This contrasts with a [Handbook](/teammate-capabilities/handbook), which is a static source of information that can be consulted at any time. 
+If there's no event, the rules will not be evaluated.
+</Note>
+
+---
+
+## Rule Structure
+
+Rules have a simple structure:
+
+- **When This**: When this event happens (e.g. "A row is added to the onboarding tracker")
+- **Then That**: Then do that (e.g. "Send the welcome email and assign the Salesforce task")
+- **Except When**: But not if these conditions are met (e.g. "The status is 'New' and region is 'EU'")
+
+<Tip>
+Aim to keep your 'Then That' short and concise. Teammates should know how to handle certain processes based on their role, job description, and Handbook. If you find yourself writing a long 'Then That', consider adding the logic to the Handbook instead.
+</Tip>
+
+---
+
+## Monitoring Events
+
+Rules are triggered by Events. You can see a list of all incoming events in the Dashboard, along with the reason a Teammate took an action (or not).
+
+### Event Types
+
+Common event types include:
+- New Email arrived
+- New messages in Slack
+- A webhook from an external tool
+- A scheduled event just occurred (e.g. "every Monday at 9am")
+- A message from another Teammate (e.g. "Leo the Lion told me that the onboarding tracker was updated")
+
+### Event Details
+
+When an event occurs, Teammates will have access to all the event details (body of the email, payload of the webhook, etc) and can use that data to write Task Descriptions and in their assignments.
+Generally speaking, teammates will be able to introspect the event details themselves, but you can also use the [Handbook](/teammate-capabilities/handbook) to provide more context.
+

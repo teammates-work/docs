@@ -57,7 +57,9 @@
       "pages": [
         "teammate-capabilities/skills",
         "teammate-capabilities/smart-tools",
-        "teammate-capabilities/abilities",
+        "teammate-capabilities/collaboration",
+        "teammate-capabilities/handbook",
+        "teammate-capabilities/rules",
         "teammate-capabilities/slack",
         "teammate-capabilities/google-workspace"
       ]
