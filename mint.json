@@ -35,13 +35,7 @@
   },
   "tabs": [
   ],
-  "anchors": [
-    {
-      "name": "Teammates App",
-      "icon": "book-open-cover",
-      "url": "/"
-    }
-  ],
+  "anchors": [],
   "navigation": [
     {
       "group": "Get Started",
