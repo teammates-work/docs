@@ -41,9 +41,9 @@
       "group": "Get Started",
       "pages": [
         "introduction",
-        "glossary",
-        "quickstart",
-        "best-practices"
+        "getting-started",
+        "best-practices",
+        "glossary"
       ]
     },
     {
@@ -53,7 +53,8 @@
         "capabilities/skills",
         "capabilities/smart-tools",
         "capabilities/handbook",
-        "capabilities/rules"
+        "capabilities/rules",
+        "capabilities/secrets"
       ]
     },
     {
