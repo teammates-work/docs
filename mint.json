@@ -54,6 +54,7 @@
         "capabilities/smart-tools",
         "capabilities/handbook",
         "capabilities/rules",
+        "capabilities/human-in-the-loop",
         "capabilities/secrets"
       ]
     },
