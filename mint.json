@@ -55,6 +55,7 @@
         "capabilities/handbook",
         "capabilities/rules",
         "capabilities/human-in-the-loop",
+        "capabilities/working-together",
         "capabilities/secrets"
       ]
     },
