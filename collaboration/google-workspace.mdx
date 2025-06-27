@@ -9,8 +9,9 @@ You can give your teammates their own Gmail addresses where you can email with t
 
 ### How it Works
 
-One of the most special parts about teammates is that they work seamlessly in 3rd party apps like THEMSELVES.
-When you want them to update a Google Sheet, you don't give them access to _your_ Google Account. Instead, you give them their own Google Account and let them manage the files on their own.
+One of the most special parts about teammates is that they work seamlessly in 3rd party apps like _themselves_.
+When you want them to update a Google Sheet, you don't give them access to _your_ Google Account. 
+Instead, **you will give them their own Google Account** and let them manage email, files, and more on their own.
 
 And once your teammate has a Google account, you can interact with them just like regular employees on your team. 
 You can send them email, share Google Sheets with them, tag them in Google Docs comments... anything you would do with a human colleague you can do with a teammate.
@@ -41,6 +42,9 @@ There you can modify their name, add a profile picture, and more.
 To ensure everyone can see their beautiful new profile picture, you'll need to set the visibility correctly. From their Profile picture popup, be sure to change visibility from 'Your organization and people you interact with' to 'Anyone'.
 </Tip>
 
+When you're done, your teammate's profile should look something like this:
+![Teammate Profile](/images/google_workspace/set_profile_picture.png)
+
 #### Setup Gmail Forwarding
 
 You'll want all incoming GMail to be forwarded to your teammate's internal email address.
@@ -48,21 +52,25 @@ You'll want all incoming GMail to be forwarded to your teammate's internal email
 1. First you'll need to find your teammate's internal email address. In the teammate's app, click their Profile and look for their `Email` field.
 1. Log into your teammate's Gmail account. Click the gear icon in the top right and select `More Settings` and click `Forwarding`
 1. Click `Add a forwarding address`
-1. Enter your teammate's internal email address. Note: You may need to go through a verification step to confirm you have access to the email address. If so, you can find the incoming email in the Teammate dashboard under [Audit Logs](https://app.teammates.work/audits).
+1. Enter your teammate's internal email address. Note: You may need to go through a verification step to confirm you have access to the email address. If so, you can find the incoming email in the Teammate dashboard under [Event Logs](https://app.teammates.work/events).
 1. Confirm the forwarding address and click `Save Changes`
+1. Be sure the 'Forward a copy of incoming mail' options is selected. If not, select it and `Save Changes` again.
+
+When you're done, your teammate's Gmail settings should look something like this:
+![GMail Forwarding](/images/google_workspace/gmail_forwarding.png)
 
 #### Update Your Teammate to Recognize their GMail Address
 
-By default, Teammates will reference their "internal email address" for recieving emails. Once they have a GMail address, you'll want to override
-the internal one with your branded one. Otherwise, they won't know what their new email is (just like you would tell a new employee what their corporate email address is).
+By default, Teammates only know about their "internal email address" - think of it like their personal email - which looks something like `hsd7vt8gy3ius@inbox.teammates.work`.
+They will reference this email in chat and work assignments until you tell them about their "new work email". Once they have a GMail address, you can override the internal one with your branded one.
 
 To update your teammate so they know about their new email address, follow these steps:
 
 1. Log in to the Teammates app
-2. Navigate to your teammate's Profile page and click the `Edit` button
-3. Find the "External Email" field
-4. Enter your teammate's new GMail address (e.g., teammate.name@yourcompany.com)
-5. Save your changes
+1. Navigate to your teammate's Profile page and click the `Edit` button
+1. Find the "External Email" field
+1. Enter your teammate's new GMail address (e.g., `teammate.name@yourcompany.com`)
+1. Save your changes
 
 <Note>
 After you update their "external email", your teammate will automatically prefer this address instead of their internal email for all communications. Neat!
