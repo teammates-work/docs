@@ -64,7 +64,8 @@
       "pages": [
         "collaboration/communication",
         "collaboration/slack",
-        "collaboration/google-workspace"
+        "collaboration/google-workspace",
+        "collaboration/microsoft-365"
       ]
     },
     {
