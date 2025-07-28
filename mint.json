@@ -71,7 +71,8 @@
     {
       "group": "Administration",
       "pages": [
-        "administration/pricing"
+        "administration/billing",
+        "administration/users"
       ]
     },
     {
