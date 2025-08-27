@@ -6,30 +6,30 @@ icon: "clock"
 
 By reading this guide, you'll learn how to:
 
-- Set up a new teammate
+- Set up a new Teammate
 - Connect tools like Cal.com and Attio
-- Teach your Teachmate how you like to work
-- Set up Rules to enable your teammate to work autonomously
+- Teach your Teammate how you like to work
+- Set up Rules to enable your Teammate to work autonomously
 
 ## Use Case: Sales Prospect Research
 
 Successful Sales Representatives do some prep work before their first call with a prospective customer. A Teammate can do a lot of that work and compile relevant information for review before a call with each customer. Here's how you can set that up for yourself with the help of a Teammate in 4 easy steps:
 
-## 1. Set up a Sales Specialist teammate
+## 1. Set up a Sales Specialist Teammate
 
 - Create a Teammate. If you haven't already done that, see [<u>here</u>](https://docs.teammates.work/getting-started) for more details.
 
-  Then, give them a personality and a relevant job description. For a sales teammate, something like this should work well: "_You are a sales specialist at [your company name] and you help with sales and new business development including customer research, email, CRM management, and any other tasks to help grow the business."_
+  Then, give them a personality and a relevant job description. For a sales Teammate, something like this should work well: "_You are a sales specialist at [your company name] and you help with sales and new business development including customer research, email, CRM management, and any other tasks to help grow the business."_
 - [<u>Connect to Slack</u>](https://docs.teammates.work/collaboration/slack) to communicate with your new virtual teammate.
-- Connect [<u>Smart Tools</u>](https://docs.teammates.work/capabilities/smart-tools) to give them access to Cal.com and Attio. You can follow the steps [<u>here</u>](https://docs.teammates.work/capabilities/smart-tools#adding-a-smart-tool).  
+- Connect [<u>Smart Tools</u>](https://docs.teammates.work/capabilities/smart-tools) to give them access to Cal.com and Attio. You can follow the steps [<u>here</u>](https://docs.teammates.work/capabilities/smart-tools#adding-a-smart-tool).
 
 ### 2. Teach your Teammate how to do their job
 
-Now that you've set up your teammate, let's call him Bixby Jameson, you can start teaching them about their job. You gave them a job description in the previous step, but now it's time to get more specific and give them details on what tasks they will be working on. You can do this by telling them via Slack, or you can directly update their [<u>Handbook</u>](https://docs.teammates.work/capabilities/handbook) by clicking on their Profile in the Teammates dashboard.
+Now that you've set up your Teammate, let's call him Bixby Jameson, you can start teaching them about their job. You gave them a job description in the previous step, but now it's time to get more specific and give them details on what tasks they will be working on. You can do this by telling them via Slack, or you can directly update their [<u>Handbook</u>](https://docs.teammates.work/capabilities/handbook) by clicking on their Profile in the Teammates dashboard.
 
 <Tabs>
   <Tab title="Slack">
-    Open Slack and say hello to your teammate. Try "Hi Bixby, welcome\! What can you do?" You will get a response that reflects the personality and general job description from Step 1.\
+    Open Slack and say hello to your Teammate. Try "Hi Bixby, welcome\! What can you do?" You will get a response that reflects the personality and general job description from Step 1.\
     As a good manager, you will now give them more context and details about their work. Here is an example assignment description:
 
     ```
@@ -50,10 +50,10 @@ Now that you've set up your teammate, let's call him Bixby Jameson, you can star
   </Tab>
 </Tabs>
 
-- Click profile, then Edit Profile. 
-- Scroll down to the Handbook section and write their instructions. Something like: \\
+- Click profile, then Edit Profile.
+- Scroll down to the Handbook section and write their instructions. Something like: 
 
-  ### [CUSTOMER PROSPECT RESEARCH]\\
+  ### [CUSTOMER PROSPECT RESEARCH]
 
   _When researching a prospective customer, you will:_
   - _Find a link to their LinkedIn profile_
@@ -63,21 +63,21 @@ Now that you've set up your teammate, let's call him Bixby Jameson, you can star
 
 ### 3. Make it automagical: Configure a Rule
 
-If you've got this far, you're doing great\! Now, your teammate knows _WHAT_ they need to do when they are researching a customer but we haven't told them anything about _WHEN_ to do this work. You have a couple of options: 
+If you've got this far, you're doing great\! Now, your Teammate knows _WHAT_ they need to do when they are researching a customer but we haven't told them anything about _WHEN_ to do this work. You have a couple of options:
 
-Option 1: You could either ping them on Slack each time you want them to research a customer e.g. "_hi, Acme corp just scheduled a call with me, please run the customer prospect research process_." This would work but it's annoying to do this manually each time, and you might miss some customers if you do this manually. 
+Option 1: You could either ping them on Slack each time you want them to research a customer e.g. "_hi, Acme corp just scheduled a call with me, please run the customer prospect research process_." This would work but it's annoying to do this manually each time, and you might miss some customers if you do this manually.
 
-Or Option 2: You can set up a [<u>Rule</u>](https://docs.teammates.work/capabilities/rules) so your teammate can independently run the customer prospect research each time a call is scheduled via Cal.com.
+Or Option 2: You can set up a [<u>Rule</u>](https://docs.teammates.work/capabilities/rules) so your Teammate can independently run the customer prospect research each time a call is scheduled via Cal.com.
 
 <Tabs>
   <Tab title="Slack">
-    Tell your teammate to create a new [<u>Rule</u>](https://docs.teammates.work/capabilities/rules) via a Slack message. \
-    Something like: "_<u>Hi @teammate, whenever a new Sales call is scheduled via Cal.com, please run the Customer Prospect Research process."</u>_
+    Tell your Teammate to create a new [<u>Rule</u>](https://docs.teammates.work/capabilities/rules) via a Slack message. \
+    Something like: "_Hi @teammate, whenever a new Sales call is scheduled via Cal.com, please run the Customer Prospect Research process."_
   </Tab>
   <Tab title="Dashboard">
     Click the "Rules" link on your Teammate's profile page, and then click. "New Rule"
 
-    - Name: Customer Prospect Research 
+    - Name: Customer Prospect Research
     - When: A user schedules a sales call (specifically referred to as a Booking Created)
     - Then: Perform prospect research on the attendee (not the organizer) according to the Handbook
   </Tab>
@@ -85,19 +85,19 @@ Or Option 2: You can set up a [<u>Rule</u>](https://docs.teammates.work/capabili
 
 ## 4. Alert your teammate when meetings are scheduled: Setup a Webhook
 
-So far, you've created a [<u>Rule</u>](https://docs.teammates.work/capabilities/rules), given your teammate access to [Cal.com](http://Cal.com), and updated their handbook. Excellent. But we're missing one final piece: a trigger or a [<u>webhook</u>](https://docs.teammates.work/collaboration/communication#webhooks) to inform your teammate whenever a new calendar event is created. (If you don't know what a webhook is, that's alright - it's just a way to integrate with another software application and in this case it helps your Teammate know about events that they need to know about.) 
+So far, you've created a [<u>Rule</u>](https://docs.teammates.work/capabilities/rules), given your teammate access to [Cal.com](http://Cal.com), and updated their handbook. Excellent. But we're missing one final piece: a trigger or a [<u>webhook</u>](https://docs.teammates.work/collaboration/communication#webhooks) to inform your Teammate whenever a new calendar event is created. (If you don't know what a webhook is, that's alright - it's just a way to integrate with another software application and in this case it helps your Teammate know about events that they need to know about.)
 
 Here is how to set up a Webhook for your teammate:
 
 1. Log into your [Cal.com](http://Cal.com) account
 2. Click "My Settings \> Webhooks" on the left navigation bar
-3. Select \+New Webhook 
+3. Select \+New Webhook
 4. Back in the [<u>Teammates Dashboard</u>](https://app.teammates.work), open your Teammate's profile page and copy their unique Webhook URL. (Note: it looks like: https://app.teammates.work/trigger/…. )
 5. Go back to [Cal.com](http://Cal.com) and paste the webhook information into the "Subscriber URL".
    1. You should also Toggle On "Enable Webhook".
    2. In Event Triggers, add "Booking Created" and "Booking Rescheduled"
-   3. Click Create Webhook and you're done. 
+   3. Click Create Webhook and you're done.
 
-Awesome, now your teammate will get notified (via webhook) every time an event is added\! And because your teammate has a [<u>Rule</u>](https://docs.teammates.work/capabilities/rules) set up, and a well defined process in the handbook, they will do this autonomously each time. 
+Awesome, now your Teammate will get notified (via webhook) every time an event is added\! And because your Teammate has a [<u>Rule</u>](https://docs.teammates.work/capabilities/rules) set up, and a well defined process in the handbook, they will do this autonomously each time.
 
-### Ready to try it out? [<u>Click here</u>](https://app.teammates.work/teammates/welcome) to get started. And let us know how it goes\!
+Ready to try it out? [<u>Get started today</u>](https://app.teammates.work) and let us know what your teammates are up to!
