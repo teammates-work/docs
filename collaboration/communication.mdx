@@ -28,8 +28,14 @@ Webhooks are a great way to integrate with 3rd party applications, particularly 
 Many online services have webhook capabilities that you can use to trigger events for your teammates. Simply copy-paste the teammate's unique webhook URL from their profile page into any app that has a webhook feature and the content will get POSTed to the teammate.
 
 <Note>
-For security reasons, your teammate will likely ignore webhooks at first -- you haven't told them what to do with them yet\! You can either hop into Chat/Slack and explain it to them (e.g. "When you get a notification about a new signup, add them to the google sheet") or setup [Rules](/capabilities/rules) manually in the Teammates dashboard.
+Important: your teammate will likely ignore webhooks at first -- you haven't told them what to do with them yet\! You can either hop into Chat/Slack and explain it to them (e.g. "When you get a notification about a new signup, add them to the google sheet") or setup [Rules](/capabilities/rules) manually in the Teammates dashboard.
 </Note>
+
+You can see all the incoming webhooks that your teammates have received in the [Event Logs](https://app.teammates.work/events) section of the Teammates dashboard.
+
+<Tip>
+Teammates can read any arbitrary webhook payload you POST to them: JSON, XML, or even plain text. This lets them receive webhooks from any 3rd party service -- or your own custom application!
+</Tip>
 
 ### Slack
 
