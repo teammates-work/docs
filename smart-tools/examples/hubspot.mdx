@@ -20,11 +20,11 @@ At this point, your teammate will likely do the following:
 4. Search for contacts with the property `company` set to the ID of the "Microsoft" company object (again, using HubSpot's query language)
 5. Handle pagination to retrieve all contacts if there are more than a single page of results
 
-Note that a task like this, while seemingly simple, likely requires 4 or more API call, plus a number of reasoning steps to correcly accomplish. It can't be done with a single function call.
+Note that a task like this, while seemingly simple, likely requires 4 or more API call, plus a number of reasoning steps to correctly accomplish. It can't be done with a single function call.
 
 #### Why it's interesting
 
-Every company's CRM configuration is different, often with custom objects. Introspecting the database to understand proprties and associations is required to correctly perform the search. Also, HubSpot's query language is not just SQL. The simple company query above likely looks something like this:
+Every company's CRM configuration is different, often with custom objects. Introspecting the database to understand properties and associations is required to correctly perform the search. Also, HubSpot's query language is not just SQL. The simple company query above likely looks something like this:
 
 ```json
 {
